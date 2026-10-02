@@ -94,7 +94,7 @@ require_once __DIR__ . '/includes/nav.php';
         <div class="p-8 rounded-3xl bg-[#0b0f19] border border-slate-800 space-y-6">
             <div>
                 <h2 class="text-base font-bold text-white flex items-center gap-2">
-                    <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     Profile Credentials
                 </h2>
             </div>
@@ -118,16 +118,16 @@ require_once __DIR__ . '/includes/nav.php';
                 <div>
                     <label for="name" class="block text-xs font-semibold uppercase text-slate-300 mb-1">Display Name</label>
                     <input type="text" id="name" name="name" required value="<?= e($admin['name']) ?>"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
                 </div>
 
                 <div>
                     <label for="email" class="block text-xs font-semibold uppercase text-slate-300 mb-1">Email Address</label>
                     <input type="email" id="email" name="email" required value="<?= e($admin['email']) ?>"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
                 </div>
 
-                <button type="submit" class="w-full py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 transition-colors">
+                <button type="submit" class="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30 transition-all">
                     Save Profile
                 </button>
             </form>
@@ -155,21 +155,21 @@ require_once __DIR__ . '/includes/nav.php';
                 <div>
                     <label for="current_password" class="block text-xs font-semibold uppercase text-slate-300 mb-1">Current Admin Password</label>
                     <input type="password" id="current_password" name="current_password" required
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500 placeholder:text-slate-600"
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500 placeholder:text-slate-600"
                         placeholder="Verify current password">
                 </div>
 
                 <div>
                     <label for="new_password" class="block text-xs font-semibold uppercase text-slate-300 mb-1">New Password</label>
                     <input type="password" id="new_password" name="new_password" required minlength="8"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500 placeholder:text-slate-600"
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500 placeholder:text-slate-600"
                         placeholder="Minimum 8 characters">
                 </div>
 
                 <div>
                     <label for="confirm_password" class="block text-xs font-semibold uppercase text-slate-300 mb-1">Confirm New Password</label>
                     <input type="password" id="confirm_password" name="confirm_password" required minlength="8"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500 placeholder:text-slate-600"
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500 placeholder:text-slate-600"
                         placeholder="Repeat new password">
                 </div>
 

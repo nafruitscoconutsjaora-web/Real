@@ -174,9 +174,9 @@ require_once __DIR__ . '/includes/nav.php';
         <form method="GET" action="/admin/users" class="flex items-center gap-2">
             <div class="relative">
                 <input type="text" name="q" value="<?= e($search) ?>" placeholder="Search username, email, name..."
-                    class="w-64 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:border-amber-500 outline-none">
+                    class="w-64 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:border-brand-500 outline-none">
             </div>
-            <button type="submit" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 transition-colors">
+            <button type="submit" class="px-4 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30 transition-all">
                 Search
             </button>
             <?php if (!empty($search)): ?>
@@ -187,10 +187,10 @@ require_once __DIR__ . '/includes/nav.php';
 
     <!-- If viewing detailed user drilldown -->
     <?php if ($detailedUser): ?>
-        <div class="p-6 rounded-3xl bg-[#0b0f19] border border-amber-500/40 space-y-6">
+        <div class="p-6 rounded-3xl bg-[#0b0f19] border border-brand-500/40 shadow-2xl space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-lg border border-amber-500/40">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-black text-lg border border-brand-500/40">
                         <?= strtoupper(substr($detailedUser['username'], 0, 1)) ?>
                     </div>
                     <div>
@@ -235,7 +235,7 @@ require_once __DIR__ . '/includes/nav.php';
                 <div class="md:col-span-2 p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
                     <div>
                         <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                             Controlled Ledger Balance Adjustment
                         </h3>
                         <p class="text-[11px] text-slate-400 mt-0.5">Every adjustment writes an audited transaction record in MySQL. Balances are never modified silently.</p>
@@ -267,7 +267,7 @@ require_once __DIR__ . '/includes/nav.php';
                         </div>
 
                         <div class="flex items-end">
-                            <button type="submit" class="w-full py-2 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 transition-colors">
+                            <button type="submit" class="w-full py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30 transition-all">
                                 Apply & Record
                             </button>
                         </div>
@@ -366,7 +366,7 @@ require_once __DIR__ . '/includes/nav.php';
                                 </td>
                                 <td class="p-4 text-slate-500 whitespace-nowrap"><?= format_date($u['created_at'], false) ?></td>
                                 <td class="p-4 text-right">
-                                    <a href="/admin/users?view=<?= $u['id'] ?>" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-950 bg-amber-500 hover:bg-amber-400 transition-colors inline-block">
+                                    <a href="/admin/users?view=<?= $u['id'] ?>" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500 shadow-sm shadow-brand-600/30 transition-all inline-block">
                                         Manage & Wallet
                                     </a>
                                 </td>

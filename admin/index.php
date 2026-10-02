@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin Dashboard
+ * Admin Gaming Platform Dashboard
  * NexusGaming Platform
  */
 
@@ -13,10 +13,11 @@ require_admin();
 $admin = current_admin();
 $db = get_db();
 
-// 1. Fetch Real MySQL Statistics
+// 1. Fetch Real MySQL Platform Statistics
 $totalUsers = 0;
 $activeUsers = 0;
-$totalWalletBalance = 0.00;
+$totalGames = 0;
+$activeGames = 0;
 $totalDeposits = 0.00;
 $openTicketsCount = 0;
 
@@ -33,9 +34,13 @@ try {
     $stmt = $db->query("SELECT COUNT(*) FROM users WHERE status = 'active'");
     $activeUsers = (int)$stmt->fetchColumn();
 
-    // Total Wallet Balance in System
-    $stmt = $db->query("SELECT COALESCE(SUM(balance), 0.00) FROM wallets");
-    $totalWalletBalance = (float)$stmt->fetchColumn();
+    // Total Games
+    $stmt = $db->query("SELECT COUNT(*) FROM games");
+    $totalGames = (int)$stmt->fetchColumn();
+
+    // Active Games
+    $stmt = $db->query("SELECT COUNT(*) FROM games WHERE status IN ('active', 'enabled')");
+    $activeGames = (int)$stmt->fetchColumn();
 
     // Total Approved Deposits
     $stmt = $db->query("SELECT COALESCE(SUM(amount), 0.00) FROM transactions WHERE type = 'deposit' AND status = 'completed'");
@@ -83,7 +88,7 @@ try {
     error_log('Admin dashboard query error: ' . $e->getMessage());
 }
 
-$adminPageTitle = 'Overview Dashboard';
+$adminPageTitle = 'Platform Dashboard';
 $activeTab = 'dashboard';
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/nav.php';
@@ -96,25 +101,24 @@ require_once __DIR__ . '/includes/nav.php';
     <!-- Welcome Header -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-            <h1 class="text-2xl font-black text-white">System Metrics & Operations</h1>
-            <p class="text-xs text-slate-400 mt-0.5">Real-time indicators queried directly from MariaDB / MySQL storage engine.</p>
+            <h1 class="text-2xl font-black text-white">Platform Dashboard</h1>
+            <p class="text-xs text-slate-400 mt-0.5">Overview of active players, game catalog, financial volume, and pending support inquiries.</p>
         </div>
         <div class="flex items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-800/60">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                MySQL Transaction Engine OK
-            </span>
+            <a href="/admin/games" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 transition-colors">
+                Manage Games &rarr;
+            </a>
         </div>
     </div>
 
-    <!-- Metrics Cards (Real Statistics) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+    <!-- Metrics Cards (Real Statistics as requested) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
         
         <!-- Total Users -->
         <div class="p-5 rounded-2xl bg-[#0b0f19] border border-slate-800 space-y-1.5">
-            <div class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Total Registered</div>
+            <div class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Total Users</div>
             <div class="text-2xl font-black text-white"><?= number_format($totalUsers) ?></div>
-            <div class="text-[11px] text-slate-500">All player accounts</div>
+            <div class="text-[11px] text-slate-500">Registered players</div>
         </div>
 
         <!-- Active Users -->
@@ -124,25 +128,32 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="text-[11px] text-slate-500">Status = Active</div>
         </div>
 
-        <!-- Total System Wallet Balance -->
+        <!-- Total Games -->
         <div class="p-5 rounded-2xl bg-[#0b0f19] border border-slate-800 space-y-1.5">
-            <div class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Platform Float</div>
-            <div class="text-2xl font-black text-brand-400"><?= format_money($totalWalletBalance) ?></div>
-            <div class="text-[11px] text-slate-500">Total player wallet funds</div>
+            <div class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Total Games</div>
+            <div class="text-2xl font-black text-white"><?= number_format($totalGames) ?></div>
+            <div class="text-[11px] text-slate-500">In database catalog</div>
         </div>
 
-        <!-- Total Approved Deposits -->
+        <!-- Active Games -->
         <div class="p-5 rounded-2xl bg-[#0b0f19] border border-slate-800 space-y-1.5">
-            <div class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Completed Deposits</div>
+            <div class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Active Games</div>
+            <div class="text-2xl font-black text-brand-400"><?= number_format($activeGames) ?></div>
+            <div class="text-[11px] text-slate-500">Live on game catalog</div>
+        </div>
+
+        <!-- Total Deposits -->
+        <div class="p-5 rounded-2xl bg-[#0b0f19] border border-slate-800 space-y-1.5">
+            <div class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Total Deposits</div>
             <div class="text-2xl font-black text-sky-400"><?= format_money($totalDeposits) ?></div>
-            <div class="text-[11px] text-slate-500">Verified incoming credits</div>
+            <div class="text-[11px] text-slate-500">Completed volume</div>
         </div>
 
         <!-- Open Support Tickets -->
         <div class="p-5 rounded-2xl bg-[#0b0f19] border border-slate-800 space-y-1.5">
             <div class="text-[11px] text-slate-400 uppercase font-semibold tracking-wider">Open Tickets</div>
             <div class="text-2xl font-black text-amber-400"><?= number_format($openTicketsCount) ?></div>
-            <div class="text-[11px] text-slate-500">Pending assistance</div>
+            <div class="text-[11px] text-slate-500">Pending reply</div>
         </div>
 
     </div>
@@ -150,15 +161,15 @@ require_once __DIR__ . '/includes/nav.php';
     <!-- Quick Operations Toolbar -->
     <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs">
         <div class="flex items-center gap-3">
-            <span class="font-semibold text-slate-300">Quick Actions:</span>
-            <a href="/admin/transactions" class="text-amber-400 hover:underline">Review Pending Deposits &rarr;</a>
+            <span class="font-semibold text-slate-300">Quick Links:</span>
+            <a href="/admin/games" class="text-amber-400 hover:underline">Game Catalog &rarr;</a>
             <span class="text-slate-700">&bull;</span>
-            <a href="/admin/tickets" class="text-amber-400 hover:underline">Reply to Support Tickets &rarr;</a>
+            <a href="/admin/transactions" class="text-amber-400 hover:underline">Pending Deposits &rarr;</a>
             <span class="text-slate-700">&bull;</span>
-            <a href="/admin/users" class="text-amber-400 hover:underline">Manage User Accounts &rarr;</a>
+            <a href="/admin/tickets" class="text-amber-400 hover:underline">Support Inquiries &rarr;</a>
         </div>
-        <div class="text-slate-500">
-            Current Server Time: <span class="font-mono text-slate-300"><?= date('Y-m-d H:i:s') ?></span>
+        <div class="text-slate-500 font-mono text-[11px]">
+            Server Time: <?= date('Y-m-d H:i:s') ?>
         </div>
     </div>
 
@@ -169,14 +180,14 @@ require_once __DIR__ . '/includes/nav.php';
             <div class="flex items-center justify-between">
                 <h2 class="text-base font-bold text-white flex items-center gap-2">
                     <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                    Recent Registered Players
+                    Recent Users
                 </h2>
                 <a href="/admin/users" class="text-xs text-amber-400 hover:underline">All Users &rarr;</a>
             </div>
 
             <?php if (empty($recentUsers)): ?>
-                <div class="p-8 rounded-2xl bg-[#0b0f19] border border-slate-800 text-center space-y-2">
-                    <p class="text-xs text-slate-500">No users registered yet. New players will appear here upon registration.</p>
+                <div class="p-8 rounded-2xl bg-[#0b0f19] border border-slate-800 text-center space-y-1">
+                    <p class="text-xs text-slate-500 font-medium">No users yet.</p>
                 </div>
             <?php else: ?>
                 <div class="overflow-x-auto rounded-2xl bg-[#0b0f19] border border-slate-800">
@@ -224,8 +235,8 @@ require_once __DIR__ . '/includes/nav.php';
             </div>
 
             <?php if (empty($recentTransactions)): ?>
-                <div class="p-8 rounded-2xl bg-[#0b0f19] border border-slate-800 text-center space-y-2">
-                    <p class="text-xs text-slate-500">No transactions recorded in MySQL ledger yet.</p>
+                <div class="p-8 rounded-2xl bg-[#0b0f19] border border-slate-800 text-center space-y-1">
+                    <p class="text-xs text-slate-500 font-medium">No transactions yet.</p>
                 </div>
             <?php else: ?>
                 <div class="overflow-x-auto rounded-2xl bg-[#0b0f19] border border-slate-800">
@@ -275,14 +286,14 @@ require_once __DIR__ . '/includes/nav.php';
         <div class="flex items-center justify-between">
             <h2 class="text-base font-bold text-white flex items-center gap-2">
                 <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                Active Support Inquiries Requiring Response
+                Open Support Tickets
             </h2>
-            <a href="/admin/tickets" class="text-xs text-amber-400 hover:underline">Support Desk &rarr;</a>
+            <a href="/admin/tickets" class="text-xs text-amber-400 hover:underline">All Tickets &rarr;</a>
         </div>
 
         <?php if (empty($openTickets)): ?>
-            <div class="p-8 rounded-2xl bg-[#0b0f19] border border-slate-800 text-center space-y-2">
-                <p class="text-xs text-slate-500">All player support tickets are resolved or closed. Inbox is clean!</p>
+            <div class="p-8 rounded-2xl bg-[#0b0f19] border border-slate-800 text-center space-y-1">
+                <p class="text-xs text-slate-500 font-medium">No support tickets yet.</p>
             </div>
         <?php else: ?>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

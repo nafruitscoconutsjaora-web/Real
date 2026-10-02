@@ -71,9 +71,9 @@ $adminPageTitle = isset($adminPageTitle) ? e($adminPageTitle) . ' | Admin Consol
 <body class="bg-[#07090e] text-slate-100 font-sans antialiased">
 
     <?php if (!is_app_installed()): ?>
-        <div class="w-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 px-4 py-2 text-xs font-bold text-center flex items-center justify-center gap-2">
+        <div class="w-full bg-gradient-to-r from-sky-600 via-brand-500 to-sky-600 text-white px-4 py-2 text-xs font-bold text-center flex items-center justify-center gap-2">
             <span>Setup Notice: Initial installation has not been locked.</span>
-            <a href="/install/" class="underline hover:text-black font-extrabold">Open Setup Wizard &rarr;</a>
+            <a href="/install/" class="underline hover:text-sky-100 font-extrabold">Open Setup Wizard &rarr;</a>
         </div>
     <?php endif; ?>
 
@@ -85,12 +85,12 @@ $adminPageTitle = isset($adminPageTitle) ? e($adminPageTitle) . ' | Admin Consol
                 <!-- Admin Brand -->
                 <div class="flex items-center gap-3">
                     <a href="/admin" class="flex items-center gap-2.5">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center text-slate-950 font-black shadow-md shadow-amber-500/20">
-                            A
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-sky-400 flex items-center justify-center text-white font-black shadow-md shadow-brand-500/25">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
                         </div>
                         <div>
                             <span class="text-base font-black tracking-wider text-white uppercase"><?= e($siteName) ?></span>
-                            <span class="ml-2 px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-950/80 text-amber-400 border border-amber-800/60">
+                            <span class="ml-2 px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-brand-950/80 text-brand-400 border border-brand-800/60">
                                 Admin Console
                             </span>
                         </div>
@@ -106,7 +106,7 @@ $adminPageTitle = isset($adminPageTitle) ? e($adminPageTitle) . ' | Admin Consol
                         </a>
                         <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
                         <div class="text-xs text-slate-300">
-                            <span class="text-slate-500">Logged in:</span> <strong><?= e($admin['name']) ?></strong>
+                            <span class="text-slate-500">Admin:</span> <strong><?= e($admin['name']) ?></strong>
                         </div>
                         <a href="/admin/logout" class="text-xs font-semibold text-rose-400 hover:text-rose-300 px-2 py-1">
                             Sign Out

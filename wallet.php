@@ -91,9 +91,9 @@ require_once __DIR__ . '/includes/user_nav.php';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <div class="p-6 rounded-2xl bg-gradient-to-br from-brand-950/60 to-slate-900 border border-brand-500/30 space-y-2">
-            <div class="text-xs text-brand-300 font-semibold uppercase tracking-wider">Available Gaming Credits</div>
+            <div class="text-xs text-brand-300 font-semibold uppercase tracking-wider">Current Balance</div>
             <div class="text-3xl font-black text-white"><?= format_money($user['balance']) ?></div>
-            <div class="text-xs text-slate-400">Ready for upcoming game engine modules</div>
+            <div class="text-xs text-slate-400">Available to play</div>
         </div>
 
         <div class="p-6 rounded-2xl bg-[#0b0f19] border border-slate-800 space-y-2">
@@ -101,16 +101,16 @@ require_once __DIR__ . '/includes/user_nav.php';
             <div class="text-xl font-bold text-slate-200">
                 <?= format_money($minDeposit) ?> &ndash; <?= format_money($maxDeposit) ?>
             </div>
-            <div class="text-xs text-slate-500">Per manual funding transaction</div>
+            <div class="text-xs text-slate-500">Per funding transaction</div>
         </div>
 
         <div class="p-6 rounded-2xl bg-[#0b0f19] border border-slate-800 space-y-2">
-            <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Gateway Infrastructure</div>
+            <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Payment Status</div>
             <div class="text-xl font-bold text-emerald-400 flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                Manual Transfer Active
+                Direct Deposit Active
             </div>
-            <div class="text-xs text-slate-500">Modular gateway schema ready for provider integrations</div>
+            <div class="text-xs text-slate-500">Fast review and verification</div>
         </div>
 
     </div>
@@ -205,7 +205,7 @@ require_once __DIR__ . '/includes/user_nav.php';
     <div class="space-y-4">
         <h2 class="text-lg font-bold text-white flex items-center gap-2">
             <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
-            Complete Wallet Transaction Ledger
+            Transaction History
         </h2>
 
         <?php if (empty($transactions)): ?>
@@ -214,8 +214,8 @@ require_once __DIR__ . '/includes/user_nav.php';
                 <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500 mx-auto">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
                 </div>
-                <h3 class="text-base font-bold text-slate-300">No Transaction Records Found</h3>
-                <p class="text-xs text-slate-500 max-w-sm mx-auto">You have no ledger activity yet. All deposits, withdrawals, and balance adjustments will be listed here with immutable timestamps.</p>
+                <h3 class="text-base font-bold text-slate-300">No transactions yet.</h3>
+                <p class="text-xs text-slate-500 max-w-sm mx-auto">All your deposits, withdrawals, and balance updates will be displayed here.</p>
             </div>
         <?php else: ?>
             <div class="overflow-x-auto rounded-2xl bg-[#0b0f19] border border-slate-800">

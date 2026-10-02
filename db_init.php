@@ -38,7 +38,7 @@ try {
         'min_deposit'      => '10.00',
         'max_deposit'      => '5000.00',
         'maintenance_mode' => '0',
-        'footer_text'      => '© 2026 NexusGaming Platform. All rights reserved. Pure PHP + Tailwind CSS + MySQL.',
+        'footer_text'      => '© 2026 NexusGaming Platform. All rights reserved.',
         'deposit_instructions' => "Bank Transfer & Crypto instructions:\nSend to Account # NEXUS-8849-012\nOr Wallet 0x71C...b90f\nAfter transfer, submit transaction amount and reference number below for verification."
     ];
 

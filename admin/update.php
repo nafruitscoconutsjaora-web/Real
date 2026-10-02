@@ -361,7 +361,7 @@ require_once __DIR__ . '/includes/nav.php';
         <!-- Current Version -->
         <div class="p-6 rounded-2xl bg-[#0b0f19] border border-slate-800 space-y-2">
             <div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Current Installed Version</div>
-            <div class="text-3xl font-black text-amber-400 font-mono">
+            <div class="text-3xl font-black text-brand-400 font-mono">
                 <?= e($currentVersion) ?>
             </div>
             <div class="text-[11px] text-slate-500">
@@ -400,7 +400,7 @@ require_once __DIR__ . '/includes/nav.php';
         <div class="p-8 rounded-3xl bg-[#0b0f19] border border-slate-800 space-y-6">
             <div>
                 <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                    <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                     Check for Platform Updates
                 </h2>
                 <p class="text-xs text-slate-400 mt-1">Connects to GitHub API in real time to verify the latest release tag.</p>
@@ -413,7 +413,7 @@ require_once __DIR__ . '/includes/nav.php';
                 <input type="hidden" name="github_branch" value="<?= e($githubBranch) ?>">
                 <input type="hidden" name="github_token" value="<?= e($githubToken) ?>">
 
-                <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 shadow-lg shadow-amber-500/20 transition-all text-sm flex items-center justify-center gap-2">
+                <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-lg shadow-brand-600/30 transition-all text-sm flex items-center justify-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                     Check for Updates Now
                 </button>
@@ -429,7 +429,7 @@ require_once __DIR__ . '/includes/nav.php';
                     <div>
                         <label class="block text-[11px] font-semibold text-slate-300 mb-1">GitHub Repository (owner/repo)</label>
                         <input type="text" name="github_repo" required value="<?= e($githubRepo) ?>"
-                            class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white font-mono outline-none focus:border-amber-500"
+                            class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white font-mono outline-none focus:border-brand-500"
                             placeholder="nexus-gaming/core-platform">
                     </div>
 
@@ -437,14 +437,14 @@ require_once __DIR__ . '/includes/nav.php';
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-300 mb-1">Release Branch</label>
                             <input type="text" name="github_branch" required value="<?= e($githubBranch) ?>"
-                                class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white font-mono outline-none focus:border-amber-500"
+                                class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white font-mono outline-none focus:border-brand-500"
                                 placeholder="main">
                         </div>
 
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-300 mb-1">GitHub Token <span class="text-slate-500">(Optional)</span></label>
                             <input type="password" name="github_token" value="<?= e($githubToken) ?>"
-                                class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white font-mono outline-none focus:border-amber-500"
+                                class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white font-mono outline-none focus:border-brand-500"
                                 placeholder="ghp_xxxx">
                         </div>
                     </div>
@@ -577,7 +577,7 @@ require_once __DIR__ . '/includes/nav.php';
                 <tbody class="divide-y divide-slate-800/60 text-slate-300">
                     <?php foreach ($versionsHistory as $vh): ?>
                         <tr class="hover:bg-slate-900/40 transition-colors">
-                            <td class="p-4 font-mono font-bold text-amber-400"><?= e($vh['version']) ?></td>
+                            <td class="p-4 font-mono font-bold text-brand-400"><?= e($vh['version']) ?></td>
                             <td class="p-4 font-medium text-white"><?= e($vh['release_title']) ?></td>
                             <td class="p-4 font-mono text-slate-400"><?= e($vh['github_repo']) ?></td>
                             <td class="p-4 font-mono text-slate-400"><?= e($vh['github_branch']) ?></td>

@@ -54,8 +54,8 @@ require_once __DIR__ . '/includes/user_nav.php';
             <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500 mx-auto">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
             </div>
-            <h3 class="text-base font-bold text-slate-300">No Announcements at Present</h3>
-            <p class="text-xs text-slate-500 max-w-sm mx-auto">There are currently no active system notifications published by administrators. Check back later for platform updates.</p>
+            <h3 class="text-base font-bold text-slate-300">No notifications yet.</h3>
+            <p class="text-xs text-slate-500 max-w-sm mx-auto">Platform alerts and updates published by administrators will be displayed here.</p>
         </div>
     <?php else: ?>
         <div class="space-y-4">

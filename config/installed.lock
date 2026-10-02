@@ -1,0 +1,8 @@
+{
+  "installed_at": "2026-10-02 15:20:00",
+  "version": "1.0.0",
+  "site_name": "NexusGaming",
+  "site_url": "http://localhost:3000",
+  "db_host": "127.0.0.1",
+  "db_name": "game_platform"
+}

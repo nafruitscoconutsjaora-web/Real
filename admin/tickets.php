@@ -164,7 +164,7 @@ require_once __DIR__ . '/includes/nav.php';
             <input type="text" name="q" value="<?= e($search) ?>" placeholder="Search ticket #, subject, user..."
                 class="w-48 px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white placeholder:text-slate-500 outline-none">
 
-            <button type="submit" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 transition-colors">
+            <button type="submit" class="px-4 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30 transition-all">
                 Filter
             </button>
             <?php if ($statusFilter !== 'all' || !empty($search)): ?>
@@ -175,11 +175,11 @@ require_once __DIR__ . '/includes/nav.php';
 
     <!-- If viewing active ticket conversation -->
     <?php if ($activeTicket): ?>
-        <div class="p-8 rounded-3xl bg-[#0b0f19] border border-amber-500/40 space-y-6">
+        <div class="p-8 rounded-3xl bg-[#0b0f19] border border-brand-500/40 shadow-2xl space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
                 <div class="space-y-1">
                     <div class="flex items-center gap-3">
-                        <span class="font-mono text-sm font-bold text-amber-400">
+                        <span class="font-mono text-sm font-bold text-brand-400">
                             <?= e($activeTicket['ticket_number']) ?>
                         </span>
                         <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-900 border border-slate-700 text-slate-300">
@@ -219,19 +219,19 @@ require_once __DIR__ . '/includes/nav.php';
                 <?php foreach ($ticketReplies as $rep): ?>
                     <?php
                         $isAdmin = !empty($rep['admin_id']);
-                        $cardBg = $isAdmin ? 'bg-[#0f172a] border-amber-500/30' : 'bg-slate-900 border-slate-800';
+                        $cardBg = $isAdmin ? 'bg-[#0f172a] border-brand-500/30' : 'bg-slate-900 border-slate-800';
                     ?>
                     <div class="p-5 rounded-2xl border <?= $cardBg ?> space-y-2.5">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-2">
-                                <span class="w-6 h-6 rounded flex items-center justify-center font-bold text-[10px] <?= $isAdmin ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-300' ?>">
+                                <span class="w-6 h-6 rounded flex items-center justify-center font-bold text-[10px] <?= $isAdmin ? 'bg-brand-600 text-white' : 'bg-slate-800 text-slate-300' ?>">
                                     <?= $isAdmin ? 'ADM' : 'PLY' ?>
                                 </span>
                                 <span class="text-xs font-bold text-white">
                                     <?= $isAdmin ? e($rep['admin_name'] ?: 'Admin Staff') : e($rep['user_name'] ?: 'Player') ?>
                                 </span>
                                 <?php if ($isAdmin): ?>
-                                    <span class="px-1.5 py-0.2 rounded text-[9px] font-bold uppercase bg-amber-950 text-amber-400 border border-amber-800">
+                                    <span class="px-1.5 py-0.2 rounded text-[9px] font-bold uppercase bg-brand-950 text-brand-400 border border-brand-800">
                                         Staff Response
                                     </span>
                                 <?php endif; ?>
@@ -248,7 +248,7 @@ require_once __DIR__ . '/includes/nav.php';
             <!-- Admin Reply Box -->
             <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
                 <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                    <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+                    <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
                     Send Official Administrative Reply
                 </h3>
 
@@ -259,7 +259,7 @@ require_once __DIR__ . '/includes/nav.php';
 
                     <div>
                         <textarea name="reply_message" rows="4" required placeholder="Type official reply to the player..."
-                            class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white outline-none focus:border-amber-500 resize-none"></textarea>
+                            class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white outline-none focus:border-brand-500 resize-none"></textarea>
                     </div>
 
                     <div class="flex flex-wrap items-center justify-between gap-4">
@@ -272,7 +272,7 @@ require_once __DIR__ . '/includes/nav.php';
                             </select>
                         </div>
 
-                        <button type="submit" class="px-6 py-2 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 shadow-md">
+                        <button type="submit" class="px-6 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30 transition-all">
                             Dispatch Reply to Player
                         </button>
                     </div>
@@ -307,7 +307,7 @@ require_once __DIR__ . '/includes/nav.php';
                     <tbody class="divide-y divide-slate-800/60 text-slate-300">
                         <?php foreach ($tickets as $t): ?>
                             <tr class="hover:bg-slate-900/40 transition-colors">
-                                <td class="p-4 font-mono font-bold text-amber-400"><?= e($t['ticket_number']) ?></td>
+                                <td class="p-4 font-mono font-bold text-brand-400"><?= e($t['ticket_number']) ?></td>
                                 <td class="p-4">
                                     <div class="font-bold text-white"><?= e($t['player_name']) ?></div>
                                     <div class="font-mono text-[11px] text-slate-500">@<?= e($t['player_username']) ?></div>
@@ -326,7 +326,7 @@ require_once __DIR__ . '/includes/nav.php';
                                 </td>
                                 <td class="p-4 text-slate-500 whitespace-nowrap"><?= format_date($t['created_at']) ?></td>
                                 <td class="p-4 text-right">
-                                    <a href="/admin/tickets?open=<?= $t['id'] ?>" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-950 bg-amber-500 hover:bg-amber-400 transition-colors inline-block">
+                                    <a href="/admin/tickets?open=<?= $t['id'] ?>" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500 shadow-sm shadow-brand-600/30 transition-all inline-block">
                                         Open Conversation &rarr;
                                     </a>
                                 </td>

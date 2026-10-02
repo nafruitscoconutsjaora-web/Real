@@ -167,7 +167,7 @@ require_once __DIR__ . '/includes/nav.php';
                 <option value="manual_adjustment" <?= $typeFilter === 'manual_adjustment' ? 'selected' : '' ?>>Manual Adjustments</option>
             </select>
 
-            <button type="submit" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 transition-colors">
+            <button type="submit" class="px-4 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30 transition-all">
                 Filter
             </button>
             <?php if ($statusFilter !== 'all' || $typeFilter !== 'all'): ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Global Header Component
+ * Global Header Component - Gaming Theme
  * NexusGaming Platform
  */
 
@@ -10,10 +10,9 @@ require_once __DIR__ . '/helpers.php';
 require_once __DIR__ . '/auth.php';
 
 $siteName = get_setting('site_name', APP_NAME);
-$siteTagline = get_setting('site_tagline', 'Modular Web Gaming Architecture');
 $logoText = get_setting('logo_text', 'NEXUS GAMING');
 $currentUser = current_user();
-$pageTitle = isset($pageTitle) ? e($pageTitle) . ' | ' . e($siteName) : e($siteName) . ' — ' . e($siteTagline);
+$pageTitle = isset($pageTitle) ? e($pageTitle) . ' | ' . e($siteName) : e($siteName) . ' — Online Gaming Platform';
 ?>
 <!DOCTYPE html>
 <html lang="en" class="dark">
@@ -21,15 +20,15 @@ $pageTitle = isset($pageTitle) ? e($pageTitle) . ' | ' . e($siteName) : e($siteN
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $pageTitle ?></title>
-    <meta name="description" content="Production-ready game website foundation powered by PHP, MySQL, and Tailwind CSS with secure authentication, wallet management, support tickets, notifications, and modular admin control panel.">
+    <meta name="description" content="Next-generation online gaming platform. Play online games, manage your wallet, and track player activity.">
     <meta property="og:title" content="<?= $pageTitle ?>">
-    <meta property="og:description" content="Production-ready game website foundation powered by PHP, MySQL, and Tailwind CSS.">
+    <meta property="og:description" content="Play online games, manage your wallet, and track player activity.">
     <meta property="og:type" content="website">
 
     <!-- Compiled Local Tailwind CSS -->
     <link rel="stylesheet" href="/assets/css/tailwind.css">
 
-    <!-- Tailwind CSS CDN Engine for complete on-the-fly utilities and dark-blue theme -->
+    <!-- Tailwind CDN Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -61,7 +60,7 @@ $pageTitle = isset($pageTitle) ? e($pageTitle) . ' | ' . e($siteName) : e($siteN
         }
     </script>
     <style>
-        /* Strict non-sticky styling as required */
+        /* Strict non-sticky layout */
         body {
             background-color: #07090e;
             color: #f1f5f9;
@@ -76,13 +75,6 @@ $pageTitle = isset($pageTitle) ? e($pageTitle) . ' | ' . e($siteName) : e($siteN
 </head>
 <body class="bg-[#07090e] text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
-    <?php if (!is_app_installed()): ?>
-        <div class="w-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 px-4 py-2 text-xs font-bold text-center flex items-center justify-center gap-2">
-            <span>Platform Setup: System installer is available to configure database and administrator credentials.</span>
-            <a href="/install/" class="underline hover:text-black font-extrabold">Launch Setup Wizard &rarr;</a>
-        </div>
-    <?php endif; ?>
-
     <!-- Header Navigation (Strictly Non-Sticky) -->
     <header class="w-full bg-[#0b0f19] border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,24 +88,19 @@ $pageTitle = isset($pageTitle) ? e($pageTitle) . ' | ' . e($siteName) : e($siteN
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
                             </svg>
                         </div>
-                        <div>
-                            <span class="text-xl font-black tracking-wider text-white uppercase group-hover:text-brand-400 transition-colors">
-                                <?= e($logoText) ?>
-                            </span>
-                            <span class="hidden sm:block text-[10px] font-semibold tracking-widest uppercase text-brand-400/80">Foundation</span>
-                        </div>
+                        <span class="text-xl font-black tracking-wider text-white uppercase group-hover:text-brand-400 transition-colors">
+                            <?= e($logoText) ?>
+                        </span>
                     </a>
                 </div>
 
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
                     <a href="/" class="text-slate-300 hover:text-brand-400 transition-colors">Home</a>
-                    <a href="/#features" class="text-slate-300 hover:text-brand-400 transition-colors">Features</a>
-                    <a href="/#architecture" class="text-slate-300 hover:text-brand-400 transition-colors">How It Works</a>
+                    <a href="/games" class="text-slate-300 hover:text-brand-400 transition-colors">Games</a>
                     <?php if ($currentUser): ?>
                         <a href="/dashboard" class="text-slate-300 hover:text-brand-400 transition-colors">Dashboard</a>
                         <a href="/wallet" class="text-slate-300 hover:text-brand-400 transition-colors">Wallet</a>
-                        <a href="/notifications" class="text-slate-300 hover:text-brand-400 transition-colors">Announcements</a>
                         <a href="/support" class="text-slate-300 hover:text-brand-400 transition-colors">Support</a>
                     <?php endif; ?>
                 </nav>
@@ -132,10 +119,10 @@ $pageTitle = isset($pageTitle) ? e($pageTitle) . ' | ' . e($siteName) : e($siteN
                         <a href="/logout" class="text-xs text-rose-400 hover:text-rose-300 font-semibold px-2 py-1">Logout</a>
                     <?php else: ?>
                         <a href="/login" class="text-sm font-semibold text-slate-300 hover:text-white px-4 py-2 rounded-xl hover:bg-slate-800/60 transition-all">
-                            Sign In
+                            Login
                         </a>
                         <a href="/register" class="text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-sky-500 hover:from-brand-500 hover:to-sky-400 px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/25 transition-all">
-                            Create Account
+                            Register
                         </a>
                     <?php endif; ?>
                 </div>
@@ -160,22 +147,19 @@ $pageTitle = isset($pageTitle) ? e($pageTitle) . ' | ' . e($siteName) : e($siteN
         <!-- Mobile Navigation Menu (Non-Sticky Flow) -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/80 bg-[#0b0f19] px-4 pt-3 pb-6 space-y-2">
             <a href="/" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Home</a>
-            <a href="/#features" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Features</a>
-            <a href="/#architecture" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">How It Works</a>
+            <a href="/games" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Games</a>
             
             <?php if ($currentUser): ?>
-                <div class="pt-2 border-t border-slate-800/60 my-2"></div>
-                <div class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">User Account</div>
                 <a href="/dashboard" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Dashboard</a>
                 <a href="/wallet" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Wallet (<?= format_money($currentUser['balance']) ?>)</a>
                 <a href="/notifications" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Announcements</a>
-                <a href="/support" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Support Tickets</a>
-                <a href="/profile" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Profile Settings</a>
-                <a href="/logout" class="block px-3 py-2 rounded-lg text-base font-semibold text-rose-400 hover:bg-slate-800/50">Log Out</a>
+                <a href="/support" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Support</a>
+                <a href="/profile" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Profile</a>
+                <a href="/logout" class="block px-3 py-2 rounded-lg text-base font-semibold text-rose-400 hover:bg-slate-800/50">Logout</a>
             <?php else: ?>
                 <div class="pt-3 border-t border-slate-800 flex flex-col gap-2">
-                    <a href="/login" class="text-center w-full py-2.5 text-sm font-semibold text-slate-200 bg-slate-800/90 rounded-xl">Sign In</a>
-                    <a href="/register" class="text-center w-full py-2.5 text-sm font-semibold text-white bg-brand-600 rounded-xl">Create Account</a>
+                    <a href="/login" class="text-center w-full py-2.5 text-sm font-semibold text-slate-200 bg-slate-800/90 rounded-xl">Login</a>
+                    <a href="/register" class="text-center w-full py-2.5 text-sm font-semibold text-white bg-brand-600 rounded-xl">Register</a>
                 </div>
             <?php endif; ?>
         </div>

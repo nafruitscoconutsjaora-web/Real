@@ -107,7 +107,7 @@ require_once __DIR__ . '/includes/nav.php';
             <h1 class="text-2xl font-black text-white">System Announcements</h1>
             <p class="text-xs text-slate-400 mt-0.5">Publish alerts, game release notices, and maintenance messages displayed to active players.</p>
         </div>
-        <button type="button" data-modal-target="create-notif-modal" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 transition-colors flex items-center gap-2">
+        <button type="button" data-modal-target="create-notif-modal" class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30 transition-all flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             Create Announcement
         </button>
@@ -115,7 +115,7 @@ require_once __DIR__ . '/includes/nav.php';
 
     <!-- Edit Form if editing -->
     <?php if ($editingItem): ?>
-        <div class="p-8 rounded-3xl bg-[#0b0f19] border border-amber-500/40 space-y-6">
+        <div class="p-8 rounded-3xl bg-[#0b0f19] border border-brand-500/40 shadow-2xl space-y-6">
             <div class="flex items-center justify-between pb-4 border-b border-slate-800">
                 <h2 class="text-lg font-bold text-white">Edit Announcement #<?= $editingItem['id'] ?></h2>
                 <a href="/admin/notifications" class="text-xs text-slate-400 hover:text-white">Cancel &times;</a>
@@ -129,7 +129,7 @@ require_once __DIR__ . '/includes/nav.php';
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Title</label>
                     <input type="text" name="title" required value="<?= e($editingItem['title']) ?>"
-                        class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                        class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -145,7 +145,7 @@ require_once __DIR__ . '/includes/nav.php';
 
                     <div class="flex items-center pt-5">
                         <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-300 font-semibold">
-                            <input type="checkbox" name="is_active" value="1" <?= $editingItem['is_active'] ? 'checked' : '' ?> class="rounded bg-slate-900 border-slate-800 text-amber-500 focus:ring-0">
+                            <input type="checkbox" name="is_active" value="1" <?= $editingItem['is_active'] ? 'checked' : '' ?> class="rounded bg-slate-900 border-slate-800 text-brand-500 focus:ring-0">
                             Active (Visible to Players)
                         </label>
                     </div>
@@ -154,11 +154,11 @@ require_once __DIR__ . '/includes/nav.php';
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Announcement Message</label>
                     <textarea name="message" rows="4" required
-                        class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500"><?= e($editingItem['message']) ?></textarea>
+                        class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500"><?= e($editingItem['message']) ?></textarea>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <button type="submit" class="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400">
+                    <button type="submit" class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30">
                         Update Announcement
                     </button>
                     <a href="/admin/notifications" class="px-4 py-2.5 rounded-xl text-xs text-slate-400 hover:text-white bg-slate-800">
@@ -259,8 +259,8 @@ require_once __DIR__ . '/includes/nav.php';
 
             <div>
                 <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Notice Title</label>
-                <input type="text" name="title" required placeholder="e.g. Scheduled Engine Maintenance"
-                    class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                <input type="text" name="title" required placeholder="e.g. Weekend Tournament Starts Today"
+                    class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -276,7 +276,7 @@ require_once __DIR__ . '/includes/nav.php';
 
                 <div class="flex items-center pt-5">
                     <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-300 font-semibold">
-                        <input type="checkbox" name="is_active" value="1" checked class="rounded bg-slate-900 border-slate-800 text-amber-500 focus:ring-0">
+                        <input type="checkbox" name="is_active" value="1" checked class="rounded bg-slate-900 border-slate-800 text-brand-500 focus:ring-0">
                         Active Immediately
                     </label>
                 </div>
@@ -285,12 +285,12 @@ require_once __DIR__ . '/includes/nav.php';
             <div>
                 <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Notice Content</label>
                 <textarea name="message" rows="4" required placeholder="Enter announcement body text for players..."
-                    class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500"></textarea>
+                    class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500"></textarea>
             </div>
 
             <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-800">
                 <button type="button" data-modal-close class="px-4 py-2 rounded-xl text-xs text-slate-400 hover:text-white bg-slate-800">Cancel</button>
-                <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400">Publish Announcement</button>
+                <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30">Publish Announcement</button>
             </div>
         </form>
     </div>

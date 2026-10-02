@@ -92,7 +92,7 @@ require_once __DIR__ . '/includes/nav.php';
         <?= csrf_field() ?>
 
         <div class="space-y-4">
-            <h2 class="text-sm font-bold uppercase tracking-wider text-amber-400 border-b border-slate-800 pb-2">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-brand-400 border-b border-slate-800 pb-2">
                 Branding & Identity
             </h2>
 
@@ -100,26 +100,26 @@ require_once __DIR__ . '/includes/nav.php';
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Site Name</label>
                     <input type="text" name="site_name" required value="<?= e($settings['site_name'] ?? 'NexusGaming') ?>"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
                     <span class="text-[11px] text-slate-500 mt-1 block">Loaded dynamically throughout site navigation and headers</span>
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Logo Text</label>
                     <input type="text" name="logo_text" required value="<?= e($settings['logo_text'] ?? 'NEXUS GAMING') ?>"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
                 </div>
             </div>
 
             <div>
                 <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Platform Tagline</label>
                 <input type="text" name="site_tagline" value="<?= e($settings['site_tagline'] ?? '') ?>"
-                    class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                    class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
             </div>
         </div>
 
         <div class="space-y-4 pt-4">
-            <h2 class="text-sm font-bold uppercase tracking-wider text-amber-400 border-b border-slate-800 pb-2">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-brand-400 border-b border-slate-800 pb-2">
                 Contact & Communication
             </h2>
 
@@ -127,19 +127,19 @@ require_once __DIR__ . '/includes/nav.php';
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Contact Support Email</label>
                     <input type="email" name="contact_email" required value="<?= e($settings['contact_email'] ?? '') ?>"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Support Phone / Hotlines</label>
                     <input type="text" name="contact_phone" value="<?= e($settings['contact_phone'] ?? '') ?>"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
                 </div>
             </div>
         </div>
 
         <div class="space-y-4 pt-4">
-            <h2 class="text-sm font-bold uppercase tracking-wider text-amber-400 border-b border-slate-800 pb-2">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-brand-400 border-b border-slate-800 pb-2">
                 Financial Ledger Parameters
             </h2>
 
@@ -147,51 +147,51 @@ require_once __DIR__ . '/includes/nav.php';
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Currency Symbol</label>
                     <input type="text" name="currency_symbol" required value="<?= e($settings['currency_symbol'] ?? '$') ?>"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500 font-mono text-center">
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500 font-mono text-center">
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Min Deposit Limit</label>
                     <input type="number" step="0.01" name="min_deposit" required value="<?= e($settings['min_deposit'] ?? '10.00') ?>"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500 font-mono">
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500 font-mono">
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Max Deposit Limit</label>
                     <input type="number" step="0.01" name="max_deposit" required value="<?= e($settings['max_deposit'] ?? '5000.00') ?>"
-                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500 font-mono">
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500 font-mono">
                 </div>
             </div>
 
             <div>
                 <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Funding Instructions Displayed to Players</label>
                 <textarea name="deposit_instructions" rows="4"
-                    class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500 font-mono leading-relaxed"><?= e($settings['deposit_instructions'] ?? '') ?></textarea>
+                    class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500 font-mono leading-relaxed"><?= e($settings['deposit_instructions'] ?? '') ?></textarea>
             </div>
         </div>
 
         <div class="space-y-4 pt-4">
-            <h2 class="text-sm font-bold uppercase tracking-wider text-amber-400 border-b border-slate-800 pb-2">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-brand-400 border-b border-slate-800 pb-2">
                 Footer & System Mode
             </h2>
 
             <div>
                 <label class="block text-xs font-semibold uppercase text-slate-300 mb-1.5">Custom Footer Copyright & Text</label>
                 <input type="text" name="footer_text" value="<?= e($settings['footer_text'] ?? '') ?>"
-                    class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-amber-500">
+                    class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white outline-none focus:border-brand-500">
             </div>
 
             <div class="pt-2">
                 <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-300 font-semibold">
                     <input type="checkbox" name="maintenance_mode" value="1" <?= (!empty($settings['maintenance_mode']) && $settings['maintenance_mode'] === '1') ? 'checked' : '' ?>
-                        class="rounded bg-slate-900 border-slate-800 text-amber-500 focus:ring-0">
+                        class="rounded bg-slate-900 border-slate-800 text-brand-500 focus:ring-0">
                     Enable System Maintenance Flag
                 </label>
             </div>
         </div>
 
         <div class="pt-4 border-t border-slate-800 flex justify-end">
-            <button type="submit" class="px-6 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-amber-500 hover:bg-amber-400 shadow-md">
+            <button type="submit" class="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-600/30 transition-all">
                 Save Platform Settings
             </button>
         </div>
